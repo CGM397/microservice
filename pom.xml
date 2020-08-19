@@ -16,8 +16,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.3.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>1.5.10.RELEASE</version>
     </parent>
 
     <!--只是声明依赖，并不实际下载，子module需要时才会下载-->
