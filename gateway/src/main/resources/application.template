@@ -1,0 +1,12 @@
+spring.application.name=zuul-agent
+server.port=8001
+
+eureka.client.healthcheck.enabled=true
+eureka.client.serviceUrl.defaultZone=http://127.0.0.1:8000/eureka/
+
+# 取消默认路由映射，以防暴露不需要暴露的服务
+zuul.ignored-services=*
+
+# 路由映射
+zuul.routes.config-server.path=/config-agent/**
+zuul.routes.config-server.service-id=config-agent
