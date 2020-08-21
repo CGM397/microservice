@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.3.RELEASE</version>
+    </parent>
+
     <groupId>nju.cgm</groupId>
     <artifactId>microservice</artifactId>
     <packaging>pom</packaging>
@@ -18,15 +24,11 @@
 
     <!--属性值放置位置-->
     <properties>
+        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
         <!--springboot和springcloud有版本对应关系-->
         <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
+        <mysql-connector.version>8.0.11</mysql-connector.version>
     </properties>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.3.RELEASE</version>
-    </parent>
 
     <!--只是声明依赖，并不实际下载，子module需要时才会下载-->
     <dependencyManagement>
@@ -43,7 +45,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.11</version>
+                <version>${mysql-connector.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
