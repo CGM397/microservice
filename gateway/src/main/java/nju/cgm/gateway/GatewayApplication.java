@@ -25,6 +25,8 @@ public class GatewayApplication {
     @Primary
     //该注解使 zuul 的配置内容动态化
     @RefreshScope
+    //将配置文件中zuul为前缀的属性加载到ZuulProperties中
+    //可以将ZuulProperties改为其他配置类以达到动态修改对应属性的目的
     @ConfigurationProperties(prefix = "zuul")
     public ZuulProperties zuulProperties() {
         return new ZuulProperties();
