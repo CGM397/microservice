@@ -1,0 +1,20 @@
+spring.application.name=
+server.port=
+
+# eureka client
+eureka.client.healthcheck.enabled=true
+eureka.client.serviceUrl.defaultZone=
+
+# 用于HTTP Basic认证，此处是为了config server的身份验证
+spring.cloud.config.username=
+spring.cloud.config.password=
+# 远程仓库的分支
+spring.cloud.config.label=
+# 和git仓库里的文件名对应
+spring.cloud.config.name=
+# 和git仓库里的文件名对应
+spring.cloud.config.profile=
+# 开启配置信息发现，不开的话找不到下面的config-server
+spring.cloud.config.discovery.enabled=true
+# 指明配置服务中心的服务名
+spring.cloud.config.discovery.service-id=

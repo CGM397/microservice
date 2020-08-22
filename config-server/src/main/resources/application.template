@@ -1,5 +1,5 @@
-spring.application.name=config-agent
-server.port=8001
+spring.application.name=
+server.port=
 
 spring.cloud.config.server.git.uri=
 # 配置仓库的分支
@@ -9,11 +9,11 @@ spring.cloud.config.server.git.password=
 
 # eureka client
 eureka.client.healthcheck.enabled=true
-eureka.client.serviceUrl.defaultZone=http://127.0.0.1:8000/eureka/
+eureka.client.serviceUrl.defaultZone=
 
 #rabbitmq configuration
-spring.rabbitmq.host=localhost
-spring.rabbitmq.port=5672
+spring.rabbitmq.host=
+spring.rabbitmq.port=
 spring.rabbitmq.username=
 spring.rabbitmq.password=
 
@@ -21,5 +21,5 @@ spring.rabbitmq.password=
 management.endpoints.web.exposure.include=bus-refresh
 
 # 为配置文件提供保护
-spring.security.user.name=root
-spring.security.user.password=root
+spring.security.user.name=
+spring.security.user.password=
