@@ -20,6 +20,7 @@
         <module>eureka-server</module>
         <module>gateway</module>
         <module>config-server</module>
+        <module>common</module>
     </modules>
 
     <!--属性值放置位置-->
@@ -28,6 +29,7 @@
         <!--springboot和springcloud有版本对应关系-->
         <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
         <mysql-connector.version>8.0.11</mysql-connector.version>
+        <mybatis.version>2.1.3</mybatis.version>
     </properties>
 
     <!--只是声明依赖，并不实际下载，子module需要时才会下载-->
@@ -46,6 +48,12 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-connector.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
