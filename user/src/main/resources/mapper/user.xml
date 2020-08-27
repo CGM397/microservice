@@ -13,27 +13,30 @@
         SELECT user_email, user_name, user_password, block_flag, create_time
         FROM ms_userinfo.user
         WHERE 1 = 1
-        <if test="user_email != null">
+        <if test="userEmail != null">
             AND user_email = #{userEmail}
         </if>
-        <if test="user_name != null">
+        <if test="userName != null">
             AND user_name = #{userName}
         </if>
-        <if test="user_password != null">
+        <if test="userPassword != null">
             AND user_password = #{userPassword}
         </if>
         <if test="blockFlag != null">
             AND block_flag = #{blockFlag}
+        </if>
+        <if test="createTime != null">
+            AND create_time = #{createTime}
         </if>
     </select>
 
     <update id="update" parameterType="java.util.Map">
         UPDATE ms_userinfo.user
         <set>
-            <if test="user_name != null">
+            <if test="userName != null">
                 user_name = #{userName},
             </if>
-            <if test="user_password != null">
+            <if test="userPassword != null">
                 user_password = #{userPassword},
             </if>
             <if test="blockFlag != null">

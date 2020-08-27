@@ -1,4 +1,4 @@
-package nju.cgm.util;
+package nju.cgm.utils;
 
 /**
  * @author: Bright Chan

@@ -26,4 +26,8 @@ public class LoginForm {
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
+
+    public Object[] getAllParams() {
+        return new Object[]{this.userEmail, this.userPassword};
+    }
 }

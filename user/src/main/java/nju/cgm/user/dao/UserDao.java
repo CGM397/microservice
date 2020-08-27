@@ -1,7 +1,7 @@
 package nju.cgm.user.dao;
 
 import nju.cgm.model.user.User;
-import nju.cgm.util.ResultData;
+import nju.cgm.utils.ResultData;
 
 import java.util.Map;
 

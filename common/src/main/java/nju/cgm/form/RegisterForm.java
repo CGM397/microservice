@@ -46,4 +46,8 @@ public class RegisterForm {
     public void setVerificationCode(String verificationCode) {
         this.verificationCode = verificationCode;
     }
+
+    public Object[] getAllParams() {
+        return new Object[]{this.userEmail, this.userName, this.userPassword, this.verificationCode};
+    }
 }

@@ -21,6 +21,8 @@
         <module>gateway</module>
         <module>config-server</module>
         <module>common</module>
+        <module>auth-server</module>
+        <module>user</module>
     </modules>
 
     <!--属性值放置位置-->

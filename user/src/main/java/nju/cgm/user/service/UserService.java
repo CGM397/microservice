@@ -1,7 +1,7 @@
 package nju.cgm.user.service;
 
 import nju.cgm.model.user.User;
-import nju.cgm.util.ResultData;
+import nju.cgm.utils.ResultData;
 
 import java.util.Map;
 
@@ -12,9 +12,13 @@ import java.util.Map;
  */
 public interface UserService {
 
-    ResultData create(User user);
+    ResultData createNewUser(User user);
 
-    ResultData modify(Map<String, Object> condition);
+    ResultData modifyUserInfo(Map<String, Object> condition);
 
     ResultData fetch(Map<String, Object> condition);
+
+    ResultData fetchByUserEmail(String userEmail);
+
+    ResultData identityVerification(Map<String, Object> condition);
 }
