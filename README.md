@@ -1,4 +1,7 @@
 # microservice
+#### &ensp;&ensp; 基于Spring Cloud的微服务demo。
+#### &ensp;&ensp; 已实现的功能：网关不重启刷新路由映射(基于Spring Cloud Bus + Spring Cloud Config)。
+
 ### 1. auth-server(TODO)：
 #### &ensp;&ensp; OAuth2.0授权服务器。
 
@@ -19,3 +22,5 @@
 
 ### 7. user(TODO)：
 #### &ensp;&ensp; User服务，提供登录注册等服务。
+
+
