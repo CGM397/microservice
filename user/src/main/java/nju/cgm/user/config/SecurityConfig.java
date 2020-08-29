@@ -25,6 +25,8 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
                 .authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
                 .and()
                 .authorizeRequests()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/static/**").permitAll()
                 .antMatchers("/user/login").permitAll()
                 .anyRequest().authenticated()
                 .and()

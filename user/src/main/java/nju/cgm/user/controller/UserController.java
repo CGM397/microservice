@@ -11,10 +11,7 @@ import nju.cgm.utils.ParamCheck;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,8 +36,8 @@ public class UserController {
         return null;
     }
 
-    @GetMapping("/login")
-    public ResultData login(LoginForm loginForm) {
+    @PostMapping("/login")
+    public ResultData login(@RequestBody LoginForm loginForm) {
         ResultData res = new ResultData();
 
         if (ParamCheck.ObjectIsEmpty(loginForm.getAllParams())) {
@@ -62,8 +59,30 @@ public class UserController {
         return res;
     }
 
-    @PostMapping("/update/user/info")
+    @PostMapping("/update/info")
     public ResultData updateUserInfo(User user) {
         return null;
+    }
+
+    @PostMapping("/info")
+    public ResultData getUserInfo(@RequestParam String userEmail) {
+        ResultData res = new ResultData();
+
+        if (ParamCheck.ObjectIsEmpty(userEmail)) {
+            res.setResponseCode(ResponseCode.RESPONSE_ERROR);
+            res.setDescription(MsConstant.ResponseDesc.PARAM_EMPTY);
+        }
+        else {
+            ResultData response = userService.fetchByUserEmail(userEmail);
+            if (response.getResponseCode() != ResponseCode.RESPONSE_OK) {
+                res.setResponseCode(ResponseCode.RESPONSE_ERROR);
+                res.setDescription("fetch failed: " + response.getDescription());
+                logger.error(res.getDescription());
+            }
+            else {
+                res.setData(response.getData());
+            }
+        }
+        return res;
     }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
+    <script type="text/javascript" src="/user/static/js/registerLogin.js"></script>
+    <script type="text/javascript" src="/user/static/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="/user/static/js/model.js"></script>
+    <link href="/user/static/css/registerLogin.css" rel="stylesheet">
+    <link href="/user/static/css/sweetalert.css" rel="stylesheet">
+</head>
+<body>
+<div class="loginBlock">
+    <form>
+        <p class="headline">用户登录</p>
+        <p class="label">账号:</p>
+        <input id="customerMail" type="text" placeholder="请输入邮箱账号">
+        <p class="label">密码:</p>
+        <input id="customerPassword" type="password" placeholder="请输入密码">
+        <input type="button" class="btnBlock" value="登录" onclick="login()">
+        <br>
+        <p class="tips">没有账号?&emsp;<a class="registerLink" href="">立即注册</a></p>
+    </form>
+</div>
+</body>
+</html>
