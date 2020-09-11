@@ -1,7 +1,8 @@
 package nju.cgm.gateway.config;
 
-import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
@@ -10,18 +11,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * @description: 请求过滤器
  */
 
-@Configuration
+@EnableWebSecurity
+@Order(101)   // 组件加载顺序，值越小优先级越高
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/user/**").permitAll()
+                .antMatchers("/login").permitAll()
                 .anyRequest()
                 .authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/user/login")
                 .and()
                 .csrf()
                 .disable();

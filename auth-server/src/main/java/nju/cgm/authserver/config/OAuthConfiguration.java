@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -29,11 +30,12 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("zuul")
-                .secret("secret")
-                .scopes("WRIGTH", "read").autoApprove(true)
-                .authorities("WRIGTH_READ", "WRIGTH_WRITE")
-                .authorizedGrantTypes("implicit", "refresh_token", "password", "authorization_code");
+                .withClient("zuul") // 客户端Id
+                .secret("secret")   // 客户端秘钥
+                .resourceIds("WRIGTH")
+                .scopes("WRIGTH", "read") // 客户端权限范围
+                .authorities("WRIGTH_READ", "WRIGTH_WRITE") // 授予客户端的权限
+                .authorizedGrantTypes("refresh_token", "password"); // 授权模式
     }
 
     @Override
@@ -54,5 +56,10 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
         converter.setSigningKey("cgm397");
         return converter;
+    }
+
+    @Bean
+    public static NoOpPasswordEncoder passwordEncoder() {
+        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
 }
