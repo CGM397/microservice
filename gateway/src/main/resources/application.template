@@ -1,5 +1,10 @@
-#rabbitmq configuration
-spring.rabbitmq.host=
-spring.rabbitmq.port=
-spring.rabbitmq.username=
-spring.rabbitmq.password=
+# 令牌端点
+security.oauth2.client.access-token-uri=http://localhost:8002/oauth/token
+# 授权端点
+security.oauth2.client.user-authorization-uri=http://localhost:8002/oauth/authorize
+# 客户端Id
+security.oauth2.client.client-id=
+# 客户端秘钥
+security.oauth2.client.client-secret=
+# 设置签名key，需要和授权服务器的key保持一致
+security.oauth2.resource.jwt.key-value=

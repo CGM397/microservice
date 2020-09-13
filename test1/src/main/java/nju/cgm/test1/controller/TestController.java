@@ -1,5 +1,8 @@
 package nju.cgm.test1.controller;
 
+import nju.cgm.test1.service.UserService;
+import nju.cgm.utils.ResultData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +23,16 @@ public class TestController {
     @Value("${config.info}")
     private String config;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/config")
     public String testConfig() {
         return config;
+    }
+
+    @GetMapping("/user/info")
+    public ResultData showUserInfo() {
+        return userService.getUserByUserEmail("980231201@qq.com");
     }
 }

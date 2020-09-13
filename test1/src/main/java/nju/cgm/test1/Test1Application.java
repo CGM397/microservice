@@ -2,10 +2,10 @@ package nju.cgm.test1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@EnableDiscoveryClient
 @SpringBootApplication
+@EnableFeignClients(basePackages = "nju.cgm.test1.service")
 public class Test1Application {
 
     public static void main(String[] args) {
