@@ -1,5 +1,6 @@
 package nju.cgm.test1.service;
 
+import nju.cgm.test1.fallback.UserFeignFallbackFactory;
 import nju.cgm.utils.ResultData;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @description: UserService
  */
 
-@FeignClient("user-agent")
+@FeignClient(value = "user-agent", fallbackFactory = UserFeignFallbackFactory.class)
 public interface UserService {
 
     @PostMapping("/user/info")

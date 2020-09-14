@@ -66,6 +66,7 @@ public class UserController {
 
     @PostMapping("/info")
     public ResultData getUserInfo(@RequestParam String userEmail) {
+//        int i = 10 / 0;
         ResultData res = new ResultData();
 
         if (ParamCheck.ObjectIsEmpty(userEmail)) {
